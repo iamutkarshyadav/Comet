@@ -91,7 +91,7 @@ export function Hero({ onExploreClick, onHowItWorksClick }: HeroProps) {
             <div className="relative aspect-[3/4] w-full border border-[#E5E5E0] bg-[#EAE8E2] overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&h=1200&q=80"
-                alt="Aura Atelier Spring 2026 Collection"
+                alt="Phoenix A* Spring 2026 Collection"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"

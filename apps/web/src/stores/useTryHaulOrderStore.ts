@@ -42,7 +42,7 @@ const createDefaultDemoOrder = (id = "ORD-TH-8921"): TryHaulOrder => {
     customer: {
       name: "Rohit Malhotra",
       phone: "+91 98112 45890",
-      address: "Aura House, Villa 4, Golf Links",
+      address: "Phoenix House, Villa 4, Golf Links",
       city: "New Delhi",
       pincode: "110003",
     },
@@ -50,7 +50,7 @@ const createDefaultDemoOrder = (id = "ORD-TH-8921"): TryHaulOrder => {
       name: "Rahul Sharma",
       phone: "+91 98711 02934",
       rating: 4.96,
-      vehicleNumber: "DL-3S-EQ-8821 (Aura EV)",
+      vehicleNumber: "DL-3S-EQ-8821 (Phoenix EV)",
       arrivedAt: new Date().toISOString(),
     },
     trialDurationMinutes: 20,
@@ -285,7 +285,7 @@ export const useTryHaulOrderStore = create<TryHaulOrderStoreState>()(
       },
     }),
     {
-      name: "aura-try-haul-order-storage",
+      name: "phoenix-try-haul-order-storage",
       storage: createJSONStorage(() => localStorage),
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);

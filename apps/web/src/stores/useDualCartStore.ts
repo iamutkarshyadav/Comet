@@ -182,7 +182,7 @@ export const useDualCartStore = create<DualCartState>()(
       },
     }),
     {
-      name: "aura-dual-cart-storage",
+      name: "phoenix-dual-cart-storage",
       storage: createJSONStorage(() => localStorage),
       onRehydrateStorage: () => (state) => {
         state?.setHasHydrated(true);

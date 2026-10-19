@@ -99,7 +99,7 @@ function CheckoutContent() {
         name: "Rahul Sharma",
         phone: "+91 98711 02934",
         rating: 4.96,
-        vehicleNumber: "DL-3S-EQ-8821 (Aura EV)",
+        vehicleNumber: "DL-3S-EQ-8821 (Phoenix EV)",
         arrivedAt: new Date().toISOString(),
       },
       trialDurationMinutes: 20,

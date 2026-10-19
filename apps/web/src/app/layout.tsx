@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "AURA / NOIR — Luxury Fashion Atelier | Doorstep Fitting Service",
+  title: "Phoenix A* — Luxury Fashion Atelier | Doorstep Fitting Service",
   description:
     "Contemporary luxury fashion. Try up to 5 garments in the comfort of your home for 20 minutes before paying a single rupee.",
 };

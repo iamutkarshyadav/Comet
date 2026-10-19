@@ -11,7 +11,7 @@ export function Footer() {
           {/* Brand info */}
           <div className="space-y-4">
             <span className="text-xl font-bold tracking-[0.24em] uppercase text-[#111111]">
-              Aura / Noir
+              Phoenix A*
             </span>
             <p className="text-[#666666] leading-relaxed">
               Architectural luxury garments tailored from unadulterated natural noble fibers. On-demand doorstep trial available across primary metropolitan zones.
@@ -92,7 +92,7 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li className="break-all">
                 <span className="text-[#666666]">
-                  concierge@auranoir-atelier.com
+                  concierge@phoenix-astar.com
                 </span>
               </li>
               <li>
@@ -116,7 +116,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-[#E5E5E0] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-[#888888]">
           <div>
-            © {new Date().getFullYear()} AURA / NOIR ATELIER. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} PHOENIX A* ATELIER. ALL RIGHTS RESERVED.
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <span>Terms of Service</span>

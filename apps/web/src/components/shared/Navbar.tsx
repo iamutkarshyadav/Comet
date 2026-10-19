@@ -78,7 +78,7 @@ export function Navbar() {
           <div className="flex items-center gap-2 sm:gap-6">
             <Link href="/" className="flex flex-col group">
               <span className="text-base sm:text-xl md:text-2xl font-bold tracking-[0.2em] sm:tracking-[0.24em] uppercase text-[#111111] group-hover:text-[#444444] transition-colors whitespace-nowrap">
-                Aura / Noir
+                Phoenix A*
               </span>
               <span className="text-[8px] sm:text-[9px] tracking-[0.25em] sm:tracking-[0.3em] uppercase text-[#666666] hidden sm:block">
                 New Delhi • Milan • Tokyo
