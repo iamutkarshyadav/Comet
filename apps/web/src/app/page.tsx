@@ -89,71 +89,71 @@ export default function Home() {
       />
 
       {/* How Try at Home Works — 3-Step Clean Explainer */}
-      <section id="how-try-at-home-works" className="py-20 border-b border-[#E5E5E0] bg-[#FFFFFF]">
+      <section id="how-try-at-home-works" className="py-12 sm:py-20 border-b border-[#E5E5E0] bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-2">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-2">
               The Doorstep Fitting Protocol
             </span>
-            <h2 className="text-3xl sm:text-4xl font-normal text-[#111111] tracking-tight uppercase">
+            <h2 className="text-2xl sm:text-4xl font-normal text-[#111111] tracking-tight uppercase">
               How Try at Home Works
             </h2>
-            <p className="text-xs sm:text-sm text-[#666666] mt-3 leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#666666] mt-2 sm:mt-3 leading-relaxed">
               Experience the garments in your personal environment with your own footwear and mirrors before paying.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Step 1 */}
-            <div className="p-8 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col justify-between">
+            <div className="p-5 sm:p-8 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col justify-between">
               <div>
-                <span className="text-xs font-mono font-semibold text-[#111111] tracking-widest block mb-4">
+                <span className="text-xs font-mono font-semibold text-[#111111] tracking-widest block mb-3 sm:mb-4">
                   01 / SELECTION
                 </span>
-                <h3 className="text-base font-semibold text-[#111111] mb-2 uppercase tracking-wide">
+                <h3 className="text-sm sm:text-base font-semibold text-[#111111] mb-2 uppercase tracking-wide">
                   Pick Up to 5 Items for ₹0 Now
                 </h3>
                 <p className="text-xs text-[#666666] leading-relaxed">
                   Select up to 5 garments across sizes and colors into your Try at Home box. You do not pay for any clothes at checkout—only a ₹199 booking deposit.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[#E5E5E0] text-[11px] text-[#15803D] font-medium">
+              <div className="mt-6 sm:mt-8 pt-4 border-t border-[#E5E5E0] text-[11px] text-[#15803D] font-medium">
                 ★ 100% credited if you buy anything, or refunded if you return all
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="p-8 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col justify-between">
+            <div className="p-5 sm:p-8 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col justify-between">
               <div>
-                <span className="text-xs font-mono font-semibold text-[#111111] tracking-widest block mb-4">
+                <span className="text-xs font-mono font-semibold text-[#111111] tracking-widest block mb-3 sm:mb-4">
                   02 / DOORSTEP DELIVERY
                 </span>
-                <h3 className="text-base font-semibold text-[#111111] mb-2 uppercase tracking-wide">
+                <h3 className="text-sm sm:text-base font-semibold text-[#111111] mb-2 uppercase tracking-wide">
                   Rider Arrives & Waits 20 Minutes
                 </h3>
                 <p className="text-xs text-[#666666] leading-relaxed">
                   Our delivery partner brings your garments in sealed garment bags within 60 minutes (or during your chosen 1-hour slot) and waits outside while you try them on in private.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[#E5E5E0] text-[11px] text-[#111111] font-medium">
+              <div className="mt-6 sm:mt-8 pt-4 border-t border-[#E5E5E0] text-[11px] text-[#111111] font-medium">
                 ★ 20-minute private trial window in your home
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="p-8 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col justify-between">
+            <div className="p-5 sm:p-8 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col justify-between">
               <div>
-                <span className="text-xs font-mono font-semibold text-[#111111] tracking-widest block mb-4">
+                <span className="text-xs font-mono font-semibold text-[#111111] tracking-widest block mb-3 sm:mb-4">
                   03 / DECIDE & RESOLVE
                 </span>
-                <h3 className="text-base font-semibold text-[#111111] mb-2 uppercase tracking-wide">
+                <h3 className="text-sm sm:text-base font-semibold text-[#111111] mb-2 uppercase tracking-wide">
                   Keep What You Love, Hand Back the Rest
                 </h3>
                 <p className="text-xs text-[#666666] leading-relaxed">
                   On your phone, tap what to keep, return, or swap for a different size. Pay only for kept pieces, and give the 4-digit return code to the rider for returned clothes.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-[#E5E5E0] text-[11px] text-[#111111] font-medium">
+              <div className="mt-6 sm:mt-8 pt-4 border-t border-[#E5E5E0] text-[11px] text-[#111111] font-medium">
                 ★ Immediate size exchanges dispatched on the spot
               </div>
             </div>
@@ -162,24 +162,24 @@ export default function Home() {
       </section>
 
       {/* Featured Collection Grid */}
-      <main id="collection-archive" className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <main id="collection-archive" className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 mb-8 border-b border-[#E5E5E0]">
           <div>
-            <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-1">
               Atelier Archive
             </span>
-            <h2 className="text-2xl sm:text-3xl font-normal text-[#111111] uppercase tracking-tight">
+            <h2 className="text-xl sm:text-3xl font-normal text-[#111111] uppercase tracking-tight">
               Selected Silhouettes
             </h2>
           </div>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-1">
+          {/* Category Tabs (Horizontal Scrollable on Mobile) */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full sm:w-auto">
             {["all", "outerwear", "knitwear", "trousers", "t-shirts"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors ${
+                className={`px-3 sm:px-4 py-2 text-xs uppercase tracking-[0.15em] transition-colors whitespace-nowrap ${
                   activeCategory === cat
                     ? "bg-[#111111] text-white font-medium"
                     : "text-[#666666] hover:text-[#111111] bg-white border border-[#E5E5E0]"
@@ -190,9 +190,9 @@ export default function Home() {
             ))}
             <Link
               href="/shop"
-              className="px-4 py-2 text-xs uppercase tracking-[0.15em] border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white transition-colors ml-2 font-medium"
+              className="px-3 sm:px-4 py-2 text-xs uppercase tracking-[0.15em] border border-[#111111] text-[#111111] hover:bg-[#111111] hover:text-white transition-colors ml-1 font-medium whitespace-nowrap"
             >
-              View Full Shop
+              Full Shop
             </Link>
           </div>
         </div>
@@ -204,49 +204,52 @@ export default function Home() {
               key={product.id}
               className="group relative flex flex-col bg-white border border-[#E5E5E0] hover:border-[#111111] transition-all"
             >
-              {/* Image Frame with Link to PDP */}
-              <Link
-                href={`/shop/${product.id}`}
-                className="relative aspect-[3/4] w-full overflow-hidden bg-[#F4F4F0] block"
-              >
-                <Image
-                  src={product.images[0]}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {/* Secondary Image Hover Swap */}
-                {product.images[1] && (
+              {/* Image Frame with Clean Link to PDP */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#F4F4F0] block">
+                <Link
+                  href={`/shop/${product.id}`}
+                  className="absolute inset-0 z-10"
+                  aria-label={product.name}
+                >
                   <Image
-                    src={product.images[1]}
-                    alt=""
+                    src={product.images[0]}
+                    alt={product.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                )}
+
+                  {/* Secondary Image Hover Swap */}
+                  {product.images[1] && (
+                    <Image
+                      src={product.images[1]}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  )}
+                </Link>
 
                 {/* Top Badge */}
-                <div className="absolute top-3 left-3 z-10">
+                <div className="absolute top-3 left-3 z-20 pointer-events-none">
                   {product.isTryHaulEligible ? (
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] uppercase tracking-wider font-semibold bg-white text-[#15803D] border border-[#15803D]">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] uppercase tracking-wider font-semibold bg-white/95 text-[#15803D] border border-[#15803D] backdrop-blur-xs">
                       <Box className="w-3 h-3 text-[#15803D]" />
                       Try at Home
                     </span>
                   ) : (
-                    <span className="inline-flex items-center px-2.5 py-1 text-[10px] uppercase tracking-wider font-medium bg-white text-[#666666] border border-[#E5E5E0]">
+                    <span className="inline-flex items-center px-2.5 py-1 text-[10px] uppercase tracking-wider font-medium bg-white/95 text-[#666666] border border-[#E5E5E0] backdrop-blur-xs">
                       Standard Buy
                     </span>
                   )}
                 </div>
 
-                {/* Hover Quick-Action Split Bar */}
-                <div className="absolute inset-x-2 bottom-2 z-20 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* Quick-Action Split Bar (Always visible on mobile touchscreens, hover on desktop) */}
+                <div className="absolute inset-x-2 bottom-2 z-20 flex gap-1.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
                   <button
                     onClick={(e) => handleAddStandard(product, e)}
-                    className="flex-1 py-3 bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white text-[10px] uppercase tracking-[0.12em] font-semibold border border-[#111111] transition-colors flex items-center justify-center gap-1 shadow-sm"
+                    className="flex-1 py-2.5 sm:py-3 bg-[#FFFFFF]/95 hover:bg-[#111111] text-[#111111] hover:text-white text-[10px] uppercase tracking-[0.12em] font-semibold border border-[#111111] transition-colors flex items-center justify-center gap-1 shadow-sm backdrop-blur-xs"
                   >
                     <ShoppingBag className="w-3 h-3" />
                     <span>Buy Now</span>
@@ -255,14 +258,14 @@ export default function Home() {
                   {product.isTryHaulEligible && (
                     <button
                       onClick={(e) => handleAddHaul(product, e)}
-                      className="flex-1 py-3 bg-[#111111] hover:bg-[#333333] text-white text-[10px] uppercase tracking-[0.12em] font-semibold transition-colors flex items-center justify-center gap-1 shadow-sm"
+                      className="flex-1 py-2.5 sm:py-3 bg-[#111111]/95 hover:bg-[#333333] text-white text-[10px] uppercase tracking-[0.12em] font-semibold transition-colors flex items-center justify-center gap-1 shadow-sm backdrop-blur-xs"
                     >
                       <Box className="w-3 h-3 text-[#15803D]" />
                       <span>Try at Home</span>
                     </button>
                   )}
                 </div>
-              </Link>
+              </div>
 
               {/* Product Info */}
               <div className="p-4 flex flex-col flex-1 justify-between gap-3 bg-white">

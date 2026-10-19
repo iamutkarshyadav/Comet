@@ -89,11 +89,11 @@ export function StandardBagTab() {
       {/* Item list */}
       <div className="flex-1 overflow-y-auto p-4 space-y-4 divide-y divide-[#E5E5E0]">
         {items.map((item) => (
-          <div key={item.id} className="pt-4 first:pt-0 flex gap-4">
+          <div key={item.id} className="pt-4 first:pt-0 flex gap-3 sm:gap-4">
             <Link
               href={`/shop/${item.productId}`}
               onClick={closeDrawer}
-              className="relative w-20 h-28 bg-[#FAF9F6] shrink-0 border border-[#E5E5E0] overflow-hidden group"
+              className="relative w-16 h-24 sm:w-20 sm:h-28 bg-[#FAF9F6] shrink-0 border border-[#E5E5E0] overflow-hidden group"
             >
               <Image
                 src={item.product.images[0]}
@@ -163,7 +163,7 @@ export function StandardBagTab() {
       </div>
 
       {/* Footer summary */}
-      <div className="p-5 bg-[#FAF9F6] border-t border-[#E5E5E0] space-y-3">
+      <div className="p-4 sm:p-5 bg-[#FAF9F6] border-t border-[#E5E5E0] space-y-3">
         {/* Promo code input */}
         <form onSubmit={applyPromo} className="flex gap-2">
           <div className="relative flex-1">

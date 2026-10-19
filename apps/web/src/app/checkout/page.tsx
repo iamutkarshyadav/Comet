@@ -188,42 +188,46 @@ function CheckoutContent() {
             </div>
 
             {/* Mode Switcher Tabs */}
-            <div className="flex items-center border border-[#E5E5E0] bg-[#FAF9F6] p-1">
+            <div className="flex items-center border border-[#E5E5E0] bg-[#FAF9F6] p-1 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={() => setCheckoutMode("TRY_HAUL")}
-                className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5 ${
                   checkoutMode === "TRY_HAUL"
                     ? "bg-[#111111] text-white shadow-xs"
                     : "text-[#666666] hover:text-[#111111]"
                 }`}
               >
-                <Box className="w-3.5 h-3.5 text-[#15803D]" />
-                <span>Try at Home ({tryHaulBox.length})</span>
+                <Box className="w-3.5 h-3.5 text-[#15803D] shrink-0" />
+                <span className="hidden xs:inline">Try at Home</span>
+                <span className="xs:hidden">Try</span>
+                <span className="tabular-nums">({tryHaulBox.length})</span>
               </button>
               <button
                 type="button"
                 onClick={() => setCheckoutMode("BUY_NOW")}
-                className={`px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5 ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5 ${
                   checkoutMode === "BUY_NOW"
                     ? "bg-[#111111] text-white shadow-xs"
                     : "text-[#666666] hover:text-[#111111]"
                 }`}
               >
-                <ShoppingBag className="w-3.5 h-3.5" />
-                <span>Buy Now ({standardBag.length})</span>
+                <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
+                <span className="hidden xs:inline">Buy Now</span>
+                <span className="xs:hidden">Buy</span>
+                <span className="tabular-nums">({standardBag.length})</span>
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 w-full flex-1">
         {/* Empty State Warning */}
         {checkoutMode === "TRY_HAUL" && tryHaulBox.length === 0 ? (
-          <div className="bg-white border border-[#E5E5E0] p-12 text-center max-w-xl mx-auto my-12">
+          <div className="bg-white border border-[#E5E5E0] p-8 sm:p-12 text-center max-w-xl mx-auto my-8 sm:my-12">
             <Box className="w-10 h-10 text-[#666666] mx-auto mb-4" />
-            <h2 className="text-lg font-semibold uppercase tracking-wider text-[#111111] mb-2">
+            <h2 className="text-base sm:text-lg font-semibold uppercase tracking-wider text-[#111111] mb-2">
               Your Try at Home Box is Empty
             </h2>
             <p className="text-xs text-[#666666] mb-6 leading-relaxed">
@@ -237,9 +241,9 @@ function CheckoutContent() {
             </Link>
           </div>
         ) : checkoutMode === "BUY_NOW" && standardBag.length === 0 ? (
-          <div className="bg-white border border-[#E5E5E0] p-12 text-center max-w-xl mx-auto my-12">
+          <div className="bg-white border border-[#E5E5E0] p-8 sm:p-12 text-center max-w-xl mx-auto my-8 sm:my-12">
             <ShoppingBag className="w-10 h-10 text-[#666666] mx-auto mb-4" />
-            <h2 className="text-lg font-semibold uppercase tracking-wider text-[#111111] mb-2">
+            <h2 className="text-base sm:text-lg font-semibold uppercase tracking-wider text-[#111111] mb-2">
               Your Shopping Bag is Empty
             </h2>
             <p className="text-xs text-[#666666] mb-6 leading-relaxed">
@@ -253,16 +257,16 @@ function CheckoutContent() {
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
             {/* Left Column (Inputs & Options, 7 cols) */}
-            <div className="lg:col-span-7 flex flex-col gap-8">
+            <div className="lg:col-span-7 flex flex-col gap-6 sm:gap-8">
               {/* If Try at Home: Delivery Window Selector */}
               {checkoutMode === "TRY_HAUL" && (
-                <div className="bg-white border border-[#E5E5E0] p-6 sm:p-8">
-                  <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
+                <div className="bg-white border border-[#E5E5E0] p-4 sm:p-8">
+                  <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
                     Step 01 / Fitting Dispatch
                   </span>
-                  <h2 className="text-lg font-normal uppercase tracking-tight text-[#111111] mb-4">
+                  <h2 className="text-base sm:text-lg font-normal uppercase tracking-tight text-[#111111] mb-4">
                     Select Doorstep Arrival Window
                   </h2>
 
@@ -344,11 +348,11 @@ function CheckoutContent() {
               )}
 
               {/* Delivery Address Form */}
-              <div className="bg-white border border-[#E5E5E0] p-6 sm:p-8">
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
+              <div className="bg-white border border-[#E5E5E0] p-4 sm:p-8">
+                <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
                   Step 02 / Location Details
                 </span>
-                <h2 className="text-lg font-normal uppercase tracking-tight text-[#111111] mb-4">
+                <h2 className="text-base sm:text-lg font-normal uppercase tracking-tight text-[#111111] mb-4">
                   Doorstep Delivery Address
                 </h2>
 
@@ -423,11 +427,11 @@ function CheckoutContent() {
               </div>
 
               {/* Payment Method Selector */}
-              <div className="bg-white border border-[#E5E5E0] p-6 sm:p-8">
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
+              <div className="bg-white border border-[#E5E5E0] p-4 sm:p-8">
+                <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
                   Step 03 / Payment Authorization
                 </span>
-                <h2 className="text-lg font-normal uppercase tracking-tight text-[#111111] mb-2">
+                <h2 className="text-base sm:text-lg font-normal uppercase tracking-tight text-[#111111] mb-2">
                   {checkoutMode === "TRY_HAUL" ? "Refundable Deposit Payment" : "Payment Method"}
                 </h2>
                 <p className="text-xs text-[#666666] mb-4">
@@ -436,7 +440,7 @@ function CheckoutContent() {
                     : "Encrypted 256-bit secure transaction."}
                 </p>
 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                   {[
                     { id: "upi", label: "UPI / QR" },
                     { id: "card", label: "Card" },
@@ -446,7 +450,7 @@ function CheckoutContent() {
                       key={method.id}
                       type="button"
                       onClick={() => setPaymentMethod(method.id)}
-                      className={`py-3 px-3 border text-xs uppercase tracking-wider font-semibold transition-all ${
+                      className={`py-3 px-2 sm:px-3 border text-xs uppercase tracking-wider font-semibold transition-all ${
                         paymentMethod === method.id
                           ? "border-[#111111] bg-[#111111] text-white"
                           : "border-[#E5E5E0] bg-white text-[#111111] hover:border-[#111111]"
@@ -461,11 +465,11 @@ function CheckoutContent() {
 
             {/* Right Column (Order Summary & Submit CTA, 5 cols) */}
             <div className="lg:col-span-5">
-              <div className="bg-white border border-[#E5E5E0] p-6 sm:p-8 sticky top-24">
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
+              <div className="bg-white border border-[#E5E5E0] p-4 sm:p-8 sticky top-24">
+                <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
                   Review & Authorize
                 </span>
-                <h2 className="text-lg font-normal uppercase tracking-tight text-[#111111] pb-4 border-b border-[#E5E5E0]">
+                <h2 className="text-base sm:text-lg font-normal uppercase tracking-tight text-[#111111] pb-3 sm:pb-4 border-b border-[#E5E5E0]">
                   {checkoutMode === "TRY_HAUL" ? "Try at Home Manifest" : "Order Summary"}
                 </h2>
 
@@ -598,19 +602,19 @@ function CheckoutContent() {
                     <button
                       type="button"
                       onClick={handleBookTryHaul}
-                      className="w-full py-4 bg-[#111111] hover:bg-[#262626] text-white text-xs uppercase tracking-[0.18em] font-semibold transition-colors flex items-center justify-center gap-2"
+                      className="w-full py-4 px-3 bg-[#111111] hover:bg-[#262626] active:bg-[#333333] text-white text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-semibold transition-colors flex items-center justify-center gap-2"
                     >
-                      <Lock className="w-4 h-4 text-[#15803D]" />
-                      <span>Pay ₹199 & Book Doorstep Trial</span>
+                      <Lock className="w-4 h-4 text-[#15803D] shrink-0" />
+                      <span>Pay ₹199 &amp; Book Doorstep Trial</span>
                     </button>
                   ) : (
                     <button
                       type="button"
                       onClick={handlePlaceBuyNowOrder}
-                      className="w-full py-4 bg-[#111111] hover:bg-[#262626] text-white text-xs uppercase tracking-[0.18em] font-semibold transition-colors flex items-center justify-center gap-2"
+                      className="w-full py-4 px-3 bg-[#111111] hover:bg-[#262626] active:bg-[#333333] text-white text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] font-semibold transition-colors flex items-center justify-center gap-2"
                     >
-                      <ShoppingBag className="w-4 h-4" />
-                      <span>Pay ₹{standardSubtotal.toLocaleString("en-IN")} & Place Order</span>
+                      <ShoppingBag className="w-4 h-4 shrink-0" />
+                      <span>Pay ₹{standardSubtotal.toLocaleString("en-IN")} &amp; Place Order</span>
                     </button>
                   )}
                 </div>

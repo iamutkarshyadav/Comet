@@ -105,11 +105,11 @@ export default function TryHaulConsolePage({ params }: PageProps) {
       <Navbar />
 
       {/* Live Fitting Status Bar (Rider Rahul is at door • 20:00 remaining) */}
-      <div className="sticky top-16 z-40 bg-[#111111] text-white border-b border-[#333333]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div className="sticky top-20 sm:top-24 z-30 bg-[#111111] text-white border-b border-[#333333]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
           {/* Left: Rider status */}
-          <div className="flex items-center gap-3">
-            <div className="w-2.5 h-2.5 bg-[#15803D] animate-pulse" />
+          <div className="flex items-center gap-2.5">
+            <div className="w-2.5 h-2.5 bg-[#15803D] animate-pulse shrink-0" />
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider block">
                 Rider {currentOrder.deliveryPartner.name} is at your door
@@ -121,9 +121,9 @@ export default function TryHaulConsolePage({ params }: PageProps) {
           </div>
 
           {/* Right: Live countdown timer */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 bg-white/10 px-3.5 py-1.5 border border-white/20">
-              <Clock className="w-4 h-4 text-[#15803D]" />
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 bg-white/10 px-3 py-1.5 border border-white/20">
+              <Clock className="w-4 h-4 text-[#15803D] shrink-0" />
               <span className="text-xs uppercase tracking-wider text-[#CCCCCC] hidden sm:inline">
                 Trial Window:
               </span>
@@ -145,26 +145,26 @@ export default function TryHaulConsolePage({ params }: PageProps) {
 
       {/* Main Console Header */}
       <div className="border-b border-[#E5E5E0] bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-1">
+              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-1">
                 Order #{currentOrder.orderNumber}
               </span>
-              <h1 className="text-2xl sm:text-3xl font-normal text-[#111111] uppercase tracking-tight">
+              <h1 className="text-xl sm:text-3xl font-normal text-[#111111] uppercase tracking-tight">
                 Doorstep Trial Console
               </h1>
-              <p className="text-xs text-[#666666] mt-1.5 max-w-xl">
+              <p className="text-xs text-[#666666] mt-1 max-w-xl leading-relaxed">
                 Try on each garment in your private space. Mark each piece below to keep, return to Rahul, or request a size exchange.
               </p>
             </div>
 
             {/* Bulk Action Controls */}
-            <div className="flex items-center gap-2 pt-2 md:pt-0">
+            <div className="flex items-center gap-2 w-full sm:w-auto pt-1 sm:pt-0">
               <button
                 type="button"
                 onClick={() => bulkSetDecision("KEEP")}
-                className="px-4 py-2.5 bg-[#111111] hover:bg-[#333333] text-white text-xs uppercase tracking-wider font-semibold transition-colors flex items-center gap-1.5"
+                className="flex-1 sm:flex-initial px-4 py-2.5 bg-[#111111] hover:bg-[#333333] text-white text-xs uppercase tracking-wider font-semibold transition-colors flex items-center justify-center gap-1.5"
               >
                 <Check className="w-3.5 h-3.5" />
                 <span>Keep All</span>
@@ -172,7 +172,7 @@ export default function TryHaulConsolePage({ params }: PageProps) {
               <button
                 type="button"
                 onClick={() => bulkSetDecision("RETURN")}
-                className="px-4 py-2.5 bg-white hover:bg-[#FAF9F6] text-[#111111] text-xs uppercase tracking-wider font-semibold border border-[#111111] transition-colors flex items-center gap-1.5"
+                className="flex-1 sm:flex-initial px-4 py-2.5 bg-white hover:bg-[#FAF9F6] text-[#111111] text-xs uppercase tracking-wider font-semibold border border-[#111111] transition-colors flex items-center justify-center gap-1.5"
               >
                 <XCircle className="w-3.5 h-3.5" />
                 <span>Return All</span>
@@ -191,8 +191,8 @@ export default function TryHaulConsolePage({ params }: PageProps) {
       )}
 
       {/* Main Trial Manifest */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 pb-28 lg:pb-10 w-full flex-1">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
           {/* Garments List (8 cols) */}
           <div className="lg:col-span-8 space-y-4">
             <span className="text-xs uppercase tracking-[0.18em] font-semibold text-[#666666] block mb-2">
@@ -207,7 +207,7 @@ export default function TryHaulConsolePage({ params }: PageProps) {
               return (
                 <div
                   key={item.id}
-                  className={`p-5 bg-white border transition-all ${
+                  className={`p-3.5 sm:p-5 bg-white border transition-all ${
                     isKept
                       ? "border-[#111111] ring-1 ring-[#111111]"
                       : isReturned
@@ -217,9 +217,9 @@ export default function TryHaulConsolePage({ params }: PageProps) {
                       : "border-[#E5E5E0]"
                   }`}
                 >
-                  <div className="flex flex-col sm:flex-row gap-5">
+                  <div className="flex flex-row gap-3.5 sm:gap-5">
                     {/* 3:4 Portrait Garment Shot */}
-                    <div className="relative w-24 h-32 bg-[#F4F4F0] shrink-0 border border-[#E5E5E0] self-start">
+                    <div className="relative w-20 h-28 sm:w-24 sm:h-32 bg-[#F4F4F0] shrink-0 border border-[#E5E5E0] self-start">
                       <Image
                         src={item.product.images[0]}
                         alt={item.product.name}
@@ -229,25 +229,25 @@ export default function TryHaulConsolePage({ params }: PageProps) {
                     </div>
 
                     {/* Details & Decision Selector */}
-                    <div className="flex-1 flex flex-col justify-between">
+                    <div className="flex-1 flex flex-col justify-between min-w-0">
                       <div>
                         <div className="flex items-start justify-between gap-2">
-                          <div>
-                            <span className="text-[10px] uppercase tracking-wider text-[#666666] font-medium">
+                          <div className="min-w-0">
+                            <span className="text-[10px] uppercase tracking-wider text-[#666666] font-medium block truncate">
                               {item.product.category}
                             </span>
-                            <h3 className="text-sm font-semibold uppercase tracking-wider text-[#111111]">
+                            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#111111] truncate">
                               {item.product.name}
                             </h3>
-                            <div className="flex items-center gap-2 text-xs text-[#666666] mt-1">
+                            <div className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-[#666666] mt-1">
                               <span>Size: <strong>{item.size}</strong></span>
                               <span>•</span>
-                              <span>Color: {item.color}</span>
+                              <span className="truncate">Color: {item.color}</span>
                             </div>
                           </div>
 
-                          <div className="text-right">
-                            <span className="text-base font-semibold text-[#111111] tabular-nums">
+                          <div className="text-right shrink-0">
+                            <span className="text-sm sm:text-base font-semibold text-[#111111] tabular-nums block">
                               ₹{item.price.toLocaleString("en-IN")}
                             </span>
                             <span className="block text-[10px] text-[#666666]">
@@ -263,68 +263,68 @@ export default function TryHaulConsolePage({ params }: PageProps) {
                         </div>
 
                         {item.isBackupSize && (
-                          <span className="inline-block mt-2 text-[10px] uppercase tracking-wider bg-[#FAF9F6] text-[#666666] px-2 py-0.5 border border-[#E5E5E0] font-medium">
+                          <span className="inline-block mt-2 text-[9px] sm:text-[10px] uppercase tracking-wider bg-[#FAF9F6] text-[#666666] px-2 py-0.5 border border-[#E5E5E0] font-medium">
                             Paired Complimentary Backup Size
                           </span>
                         )}
 
                         {isExchanged && item.exchangeDetails && (
-                          <div className="mt-2 text-xs text-[#15803D] bg-[#15803D]/10 p-2 border border-[#15803D]/30 flex items-center justify-between">
-                            <span>
-                              Exchanging for Size <strong>{item.exchangeDetails.newSize}</strong> • Immediate Dispatch
+                          <div className="mt-2 text-xs text-[#15803D] bg-[#15803D]/10 p-2 border border-[#15803D]/30 flex items-center justify-between gap-2">
+                            <span className="text-[11px] truncate">
+                              Exchanging for <strong>{item.exchangeDetails.newSize}</strong>
                             </span>
                             <button
                               onClick={() => handleOpenExchange(item.id, item.size)}
-                              className="text-[11px] underline font-semibold text-[#15803D]"
+                              className="text-[11px] underline font-semibold text-[#15803D] shrink-0"
                             >
-                              Edit Size
+                              Edit
                             </button>
                           </div>
                         )}
                       </div>
 
                       {/* 3-Button Choice Matrix */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4 pt-3 border-t border-[#E5E5E0]">
+                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mt-3 pt-3 border-t border-[#E5E5E0]">
                         {/* 1. Keep & Buy */}
                         <button
                           type="button"
                           onClick={() => setItemDecision(item.id, "KEEP")}
-                          className={`py-2.5 px-2 text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                          className={`py-2 px-1.5 sm:px-2 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-1 ${
                             isKept
                               ? "bg-[#111111] text-white"
                               : "bg-white text-[#111111] border border-[#E5E5E0] hover:border-[#111111]"
                           }`}
                         >
-                          <Check className="w-3.5 h-3.5" />
-                          <span>Keep & Buy</span>
+                          <Check className="w-3.5 h-3.5 shrink-0" />
+                          <span>Keep<span className="hidden sm:inline"> &amp; Buy</span></span>
                         </button>
 
                         {/* 2. Return to Rider */}
                         <button
                           type="button"
                           onClick={() => setItemDecision(item.id, "RETURN")}
-                          className={`py-2.5 px-2 text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                          className={`py-2 px-1.5 sm:px-2 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-1 ${
                             isReturned
                               ? "bg-[#666666] text-white"
                               : "bg-white text-[#666666] border border-[#E5E5E0] hover:border-[#666666]"
                           }`}
                         >
-                          <XCircle className="w-3.5 h-3.5" />
-                          <span>Return to Rider</span>
+                          <XCircle className="w-3.5 h-3.5 shrink-0" />
+                          <span>Return<span className="hidden sm:inline"> to Rider</span></span>
                         </button>
 
                         {/* 3. Need Different Size/Color */}
                         <button
                           type="button"
                           onClick={() => handleOpenExchange(item.id, item.size)}
-                          className={`py-2.5 px-2 text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-1.5 ${
+                          className={`py-2 px-1.5 sm:px-2 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-1 ${
                             isExchanged
                               ? "bg-[#15803D] text-white"
                               : "bg-white text-[#15803D] border border-[#15803D] hover:bg-[#15803D]/10"
                           }`}
                         >
-                          <RefreshCw className="w-3.5 h-3.5" />
-                          <span>Swap Size</span>
+                          <RefreshCw className="w-3.5 h-3.5 shrink-0" />
+                          <span>Swap<span className="hidden sm:inline"> Size</span></span>
                         </button>
                       </div>
                     </div>
@@ -336,11 +336,11 @@ export default function TryHaulConsolePage({ params }: PageProps) {
 
           {/* Right Column: Live Settlement Summary (4 cols) */}
           <div className="lg:col-span-4">
-            <div className="bg-white border border-[#E5E5E0] p-6 sticky top-36">
+            <div className="bg-white border border-[#E5E5E0] p-5 sm:p-6 sticky top-36">
               <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
                 Live Doorstep Math
               </span>
-              <h2 className="text-lg font-normal uppercase tracking-tight text-[#111111] pb-3 border-b border-[#E5E5E0]">
+              <h2 className="text-base sm:text-lg font-normal uppercase tracking-tight text-[#111111] pb-3 border-b border-[#E5E5E0]">
                 Settlement Summary
               </h2>
 
@@ -372,7 +372,7 @@ export default function TryHaulConsolePage({ params }: PageProps) {
                   <span className="font-semibold uppercase tracking-wider text-[#111111] text-xs">
                     Net Due to Rider:
                   </span>
-                  <span className="text-2xl font-normal text-[#111111] tabular-nums">
+                  <span className="text-xl sm:text-2xl font-normal text-[#111111] tabular-nums">
                     ₹{settlement.netPayableToRider.toLocaleString("en-IN")}
                   </span>
                 </div>
@@ -391,7 +391,7 @@ export default function TryHaulConsolePage({ params }: PageProps) {
                 <button
                   type="button"
                   onClick={() => setShowOtpModal(true)}
-                  className="w-full py-4 bg-[#111111] hover:bg-[#262626] text-white text-xs uppercase tracking-[0.18em] font-semibold transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3.5 sm:py-4 bg-[#111111] hover:bg-[#262626] text-white text-xs uppercase tracking-[0.18em] font-semibold transition-colors flex items-center justify-center gap-2"
                 >
                   <ShieldCheck className="w-4 h-4 text-[#15803D]" />
                   <span>Show Rider Return Code</span>
@@ -406,10 +406,33 @@ export default function TryHaulConsolePage({ params }: PageProps) {
         </div>
       </main>
 
+      {/* Mobile Sticky Settlement & Return Code Bar (Visible only on mobile/tablet) */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#111111] p-3 sm:p-4 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+        <div className="flex items-center justify-between gap-3 max-w-7xl mx-auto">
+          <div>
+            <span className="text-[10px] uppercase tracking-wider text-[#666666] block">
+              Net Due to Rider
+            </span>
+            <span className="text-lg font-semibold text-[#111111] tabular-nums leading-none">
+              ₹{settlement.netPayableToRider.toLocaleString("en-IN")}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setShowOtpModal(true)}
+            className="px-4 py-2.5 bg-[#111111] active:bg-[#333333] text-white text-[11px] uppercase tracking-[0.14em] font-semibold flex items-center gap-1.5 shadow-sm"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-[#15803D]" />
+            <span>Show Return Code</span>
+          </button>
+        </div>
+      </div>
+
       {/* Exchange Size Modal */}
       {exchangeModalItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white border border-[#E5E5E0] max-w-md w-full p-6 relative">
+          <div className="bg-white border border-[#E5E5E0] max-w-md w-full p-5 sm:p-6 relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setExchangeModalItem(null)}
               className="absolute top-4 right-4 text-[#666666] hover:text-[#111111]"
@@ -467,7 +490,7 @@ export default function TryHaulConsolePage({ params }: PageProps) {
       {/* 4-Digit Handover OTP Modal */}
       {showOtpModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white border border-[#E5E5E0] max-w-md w-full p-8 text-center relative">
+          <div className="bg-white border border-[#E5E5E0] max-w-md w-full p-5 sm:p-8 text-center relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setShowOtpModal(false)}
               className="absolute top-4 right-4 text-[#666666] hover:text-[#111111]"

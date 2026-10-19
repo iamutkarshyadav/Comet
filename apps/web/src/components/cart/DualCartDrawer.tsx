@@ -37,22 +37,22 @@ export function DualCartDrawer() {
             onClick={closeDrawer}
           />
 
-          <div className="fixed inset-y-0 right-0 max-w-full flex pl-10 pointer-events-none">
+          <div className="fixed inset-y-0 right-0 max-w-full flex w-full sm:w-auto sm:pl-10 pointer-events-none">
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.3 }}
-              className="w-screen max-w-md bg-[#FFFFFF] border-l border-[#E5E5E0] shadow-xl flex flex-col pointer-events-auto rounded-none"
+              className="w-full sm:w-screen sm:max-w-md bg-[#FFFFFF] border-l border-[#E5E5E0] shadow-2xl flex flex-col pointer-events-auto rounded-none h-full"
             >
               {/* Header with Title and Close Button */}
-              <div className="p-5 border-b border-[#E5E5E0] flex items-center justify-between bg-[#FFFFFF]">
-                <h2 className="text-sm font-semibold tracking-[0.2em] uppercase text-[#111111]">
+              <div className="p-4 sm:p-5 border-b border-[#E5E5E0] flex items-center justify-between bg-[#FFFFFF]">
+                <h2 className="text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-[#111111]">
                   Shopping Bag
                 </h2>
                 <button
                   onClick={closeDrawer}
-                  className="p-1 text-[#666666] hover:text-[#111111] transition-colors"
+                  className="p-1.5 text-[#666666] hover:text-[#111111] transition-colors"
                   aria-label="Close"
                 >
                   <X className="w-5 h-5" />
@@ -64,14 +64,14 @@ export function DualCartDrawer() {
                 {/* Tab 1: Buy Now */}
                 <button
                   onClick={() => setActiveTab("BUY_NOW")}
-                  className={`py-3.5 px-4 text-center font-medium uppercase tracking-[0.15em] transition-all border-b-2 ${
+                  className={`py-3 sm:py-3.5 px-2 sm:px-4 text-center font-medium uppercase tracking-wider sm:tracking-[0.15em] transition-all border-b-2 text-[11px] sm:text-xs ${
                     activeTab === "BUY_NOW"
                       ? "border-[#111111] text-[#111111] bg-[#FFFFFF]"
                       : "border-transparent text-[#666666] hover:text-[#111111]"
                   }`}
                 >
                   <span className="flex items-center justify-center gap-1.5">
-                    <ShoppingBag className="w-3.5 h-3.5" />
+                    <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
                     <span>Buy Now ({standardCount})</span>
                   </span>
                 </button>
@@ -79,15 +79,17 @@ export function DualCartDrawer() {
                 {/* Tab 2: Try at Home */}
                 <button
                   onClick={() => setActiveTab("TRY_HAUL")}
-                  className={`py-3.5 px-4 text-center font-medium uppercase tracking-[0.15em] transition-all border-b-2 ${
+                  className={`py-3 sm:py-3.5 px-2 sm:px-4 text-center font-medium uppercase tracking-wider sm:tracking-[0.15em] transition-all border-b-2 text-[11px] sm:text-xs ${
                     activeTab === "TRY_HAUL"
                       ? "border-[#111111] text-[#111111] bg-[#FFFFFF]"
                       : "border-transparent text-[#666666] hover:text-[#111111]"
                   }`}
                 >
                   <span className="flex items-center justify-center gap-1.5">
-                    <Box className="w-3.5 h-3.5 text-[#15803D]" />
-                    <span>Try at Home ({haulCount}/{maxHaulCapacity})</span>
+                    <Box className="w-3.5 h-3.5 text-[#15803D] shrink-0" />
+                    <span className="hidden sm:inline">Try at Home</span>
+                    <span className="sm:hidden">Try</span>
+                    <span className="tabular-nums">({haulCount}/{maxHaulCapacity})</span>
                   </span>
                 </button>
               </div>

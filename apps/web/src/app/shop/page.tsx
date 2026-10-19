@@ -23,7 +23,7 @@ export default function ShopPage() {
   const [selectedSize, setSelectedSize] = useState<ProductSize | "all">("all");
   const [tryHaulOnly, setTryHaulOnly] = useState<boolean>(false);
   const [sortBy, setSortBy] = useState<"featured" | "price-asc" | "price-desc">("featured");
-  const [columns, setColumns] = useState<2 | 4>(4);
+  const [columns, setColumns] = useState<1 | 2 | 4>(4);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const addToStandardBag = useDualCartStore((s) => s.addToStandardBag);
@@ -110,16 +110,16 @@ export default function ShopPage() {
 
       {/* Collection Header */}
       <div className="border-b border-[#E5E5E0] bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-          <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14">
+          <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-[#666666] block mb-1 sm:mb-2">
             Collection Archive
           </span>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 sm:gap-4">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-normal text-[#111111] uppercase tracking-tight">
+              <h1 className="text-2xl sm:text-4xl font-normal text-[#111111] uppercase tracking-tight">
                 All Garments
               </h1>
-              <p className="text-xs sm:text-sm text-[#666666] mt-1.5 max-w-xl">
+              <p className="text-xs sm:text-sm text-[#666666] mt-1 sm:mt-1.5 max-w-xl leading-relaxed">
                 Architectural tailoring, premium organic wools, and heavyweight knits. Eligible pieces can be tried at your home for 20 minutes before payment.
               </p>
             </div>
@@ -131,53 +131,54 @@ export default function ShopPage() {
       </div>
 
       {/* Filter and Control Bar */}
-      <div className="sticky top-16 z-30 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E5E5E0]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
-          {/* Category Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
+      <div className="sticky top-20 sm:top-24 z-30 bg-[#FAF9F6]/95 backdrop-blur-md border-b border-[#E5E5E0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          {/* Category Pills (Horizontal Scroll on Mobile) */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none w-full md:w-auto">
             {["all", "outerwear", "knitwear", "trousers", "t-shirts"].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 text-xs uppercase tracking-wider transition-colors whitespace-nowrap ${
+                className={`px-3 py-1.5 text-xs uppercase tracking-wider transition-colors whitespace-nowrap shrink-0 ${
                   selectedCategory === cat
                     ? "bg-[#111111] text-white font-medium"
                     : "bg-white text-[#666666] border border-[#E5E5E0] hover:text-[#111111]"
                 }`}
               >
-                {cat === "all" ? "All Categories" : cat}
+                {cat === "all" ? "All" : cat}
               </button>
             ))}
           </div>
 
           {/* Right Controls: Filter Options & View Switch */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between md:justify-end gap-2 sm:gap-3 w-full md:w-auto overflow-x-auto pb-1 sm:pb-0">
             {/* Try at Home Toggle */}
             <button
               onClick={() => setTryHaulOnly(!tryHaulOnly)}
-              className={`px-3 py-1.5 text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors border ${
+              className={`px-2.5 sm:px-3 py-1.5 text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors border shrink-0 ${
                 tryHaulOnly
                   ? "bg-[#15803D] text-white border-[#15803D] font-medium"
                   : "bg-white text-[#111111] border-[#E5E5E0] hover:border-[#111111]"
               }`}
             >
-              <Box className="w-3.5 h-3.5" />
-              <span>Try at Home Eligible</span>
+              <Box className="w-3.5 h-3.5 text-current shrink-0" />
+              <span className="hidden xs:inline">Try at Home</span>
+              <span className="xs:hidden">Try ₹0</span>
             </button>
 
             {/* Size Filter Dropdown */}
             <select
               value={selectedSize}
               onChange={(e) => setSelectedSize(e.target.value as ProductSize | "all")}
-              className="px-3 py-1.5 text-xs uppercase tracking-wider bg-white border border-[#E5E5E0] text-[#111111] focus:outline-none cursor-pointer"
+              className="px-2 sm:px-3 py-1.5 text-xs uppercase tracking-wider bg-white border border-[#E5E5E0] text-[#111111] focus:outline-none cursor-pointer shrink-0"
             >
-              <option value="all">All Sizes</option>
-              <option value="XS">Size XS</option>
-              <option value="S">Size S</option>
-              <option value="M">Size M</option>
-              <option value="L">Size L</option>
-              <option value="XL">Size XL</option>
-              <option value="XXL">Size XXL</option>
+              <option value="all">Sizes</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
             </select>
 
             {/* Sort Dropdown */}
@@ -186,15 +187,27 @@ export default function ShopPage() {
               onChange={(e) =>
                 setSortBy(e.target.value as "featured" | "price-asc" | "price-desc")
               }
-              className="px-3 py-1.5 text-xs uppercase tracking-wider bg-white border border-[#E5E5E0] text-[#111111] focus:outline-none cursor-pointer hidden sm:block"
+              className="px-2 sm:px-3 py-1.5 text-xs uppercase tracking-wider bg-white border border-[#E5E5E0] text-[#111111] focus:outline-none cursor-pointer shrink-0"
             >
-              <option value="featured">Sort: Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price ↑</option>
+              <option value="price-desc">Price ↓</option>
             </select>
 
-            {/* Grid View Layout Toggle (2-Col vs 4-Col) */}
-            <div className="hidden md:flex items-center border border-[#E5E5E0] bg-white">
+            {/* Mobile View Toggle: 1-Col vs 2-Col */}
+            <div className="flex md:hidden items-center border border-[#E5E5E0] bg-white shrink-0">
+              <button
+                onClick={() => setColumns(columns === 1 ? 2 : 1)}
+                className="px-2 py-1.5 text-[11px] uppercase font-semibold text-[#111111] flex items-center gap-1"
+                title="Toggle 1 or 2 Columns"
+              >
+                {columns === 1 ? <Grid2X2 className="w-3.5 h-3.5" /> : <LayoutGrid className="w-3.5 h-3.5" />}
+                <span>{columns === 1 ? "2-Col" : "1-Col"}</span>
+              </button>
+            </div>
+
+            {/* Desktop Grid View Layout Toggle (2-Col vs 4-Col) */}
+            <div className="hidden md:flex items-center border border-[#E5E5E0] bg-white shrink-0">
               <button
                 onClick={() => setColumns(2)}
                 className={`p-1.5 transition-colors ${
@@ -222,7 +235,7 @@ export default function ShopPage() {
             {hasActiveFilters && (
               <button
                 onClick={clearFilters}
-                className="text-xs uppercase tracking-wider text-[#666666] hover:text-[#111111] flex items-center gap-1 font-medium pl-1"
+                className="text-xs uppercase tracking-wider text-[#666666] hover:text-[#111111] flex items-center gap-1 font-medium pl-1 shrink-0"
                 title="Reset all filters"
               >
                 <X className="w-3.5 h-3.5" />
@@ -234,7 +247,7 @@ export default function ShopPage() {
       </div>
 
       {/* Main Grid View */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 flex-1 w-full">
         {filteredProducts.length === 0 ? (
           <div className="text-center py-24 bg-white border border-[#E5E5E0] p-8">
             <SlidersHorizontal className="w-8 h-8 text-[#888888] mx-auto mb-3" />
@@ -253,10 +266,12 @@ export default function ShopPage() {
           </div>
         ) : (
           <div
-            className={`grid gap-6 ${
-              columns === 2
-                ? "grid-cols-1 md:grid-cols-2"
-                : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+            className={`grid gap-4 sm:gap-6 ${
+              columns === 1
+                ? "grid-cols-1"
+                : columns === 2
+                ? "grid-cols-2"
+                : "grid-cols-2 sm:grid-cols-2 lg:grid-cols-4"
             }`}
           >
             {filteredProducts.map((product) => (
@@ -264,82 +279,89 @@ export default function ShopPage() {
                 key={product.id}
                 className="group relative flex flex-col bg-white border border-[#E5E5E0] hover:border-[#111111] transition-all"
               >
-                {/* Image Frame with Link */}
-                <Link
-                  href={`/shop/${product.id}`}
-                  className="relative aspect-[3/4] w-full overflow-hidden bg-[#F4F4F0] block"
-                >
-                  <Image
-                    src={product.images[0]}
-                    alt={product.name}
-                    fill
-                    sizes={
-                      columns === 2
-                        ? "(max-width: 768px) 100vw, 50vw"
-                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    }
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-
-                  {/* Secondary Image Hover Swap */}
-                  {product.images[1] && (
+                {/* Image Frame with Clean Link */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#F4F4F0] block">
+                  <Link
+                    href={`/shop/${product.id}`}
+                    className="absolute inset-0 z-10"
+                    aria-label={product.name}
+                  >
                     <Image
-                      src={product.images[1]}
-                      alt=""
+                      src={product.images[0]}
+                      alt={product.name}
                       fill
                       sizes={
-                        columns === 2
-                          ? "(max-width: 768px) 100vw, 50vw"
-                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        columns === 1
+                          ? "100vw"
+                          : columns === 2
+                          ? "(max-width: 768px) 50vw, 50vw"
+                          : "(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
                       }
-                      className="object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
-                  )}
+
+                    {/* Secondary Image Hover Swap */}
+                    {product.images[1] && (
+                      <Image
+                        src={product.images[1]}
+                        alt=""
+                        fill
+                        sizes={
+                          columns === 1
+                            ? "100vw"
+                            : columns === 2
+                            ? "(max-width: 768px) 50vw, 50vw"
+                            : "(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                        }
+                        className="object-cover object-top opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    )}
+                  </Link>
 
                   {/* Top Badge */}
-                  <div className="absolute top-3 left-3 z-10">
+                  <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-20 pointer-events-none">
                     {product.isTryHaulEligible ? (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 text-[10px] uppercase tracking-wider font-semibold bg-white text-[#15803D] border border-[#15803D]">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold bg-white/95 text-[#15803D] border border-[#15803D] backdrop-blur-xs">
                         <Box className="w-3 h-3 text-[#15803D]" />
                         Try at Home
                       </span>
                     ) : (
-                      <span className="inline-flex items-center px-2.5 py-1 text-[10px] uppercase tracking-wider font-medium bg-white text-[#666666] border border-[#E5E5E0]">
+                      <span className="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 text-[9px] sm:text-[10px] uppercase tracking-wider font-medium bg-white/95 text-[#666666] border border-[#E5E5E0] backdrop-blur-xs">
                         Standard Buy
                       </span>
                     )}
                   </div>
 
-                  {/* Hover Quick-Action Split Bar */}
-                  <div className="absolute inset-x-2 bottom-2 z-20 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  {/* Quick-Action Split Bar (Touch-friendly on mobile, hover on desktop) */}
+                  <div className="absolute inset-x-1.5 sm:inset-x-2 bottom-1.5 sm:bottom-2 z-20 flex gap-1 sm:gap-1.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
                     <button
                       onClick={(e) => handleAddStandard(product, e)}
-                      className="flex-1 py-3 bg-[#FFFFFF] hover:bg-[#111111] text-[#111111] hover:text-white text-[10px] uppercase tracking-[0.12em] font-semibold border border-[#111111] transition-colors flex items-center justify-center gap-1 shadow-sm"
+                      className="flex-1 py-2 sm:py-3 bg-[#FFFFFF]/95 hover:bg-[#111111] text-[#111111] hover:text-white text-[9px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.12em] font-semibold border border-[#111111] transition-colors flex items-center justify-center gap-1 shadow-sm backdrop-blur-xs"
                     >
                       <ShoppingBag className="w-3 h-3" />
-                      <span>Buy Now</span>
+                      <span>Buy</span>
                     </button>
 
                     {product.isTryHaulEligible && (
                       <button
                         onClick={(e) => handleAddHaul(product, e)}
-                        className="flex-1 py-3 bg-[#111111] hover:bg-[#333333] text-white text-[10px] uppercase tracking-[0.12em] font-semibold transition-colors flex items-center justify-center gap-1 shadow-sm"
+                        className="flex-1 py-2 sm:py-3 bg-[#111111]/95 hover:bg-[#333333] text-white text-[9px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.12em] font-semibold transition-colors flex items-center justify-center gap-1 shadow-sm backdrop-blur-xs"
                       >
                         <Box className="w-3 h-3 text-[#15803D]" />
-                        <span>Try at Home</span>
+                        <span>Try ₹0</span>
                       </button>
                     )}
                   </div>
-                </Link>
+                </div>
 
                 {/* Product Info */}
-                <div className="p-4 flex flex-col flex-1 justify-between gap-3 bg-white">
+                <div className="p-3 sm:p-4 flex flex-col flex-1 justify-between gap-2 sm:gap-3 bg-white">
                   <div>
-                    <div className="flex items-center justify-between text-[11px] text-[#666666] mb-1">
-                      <span className="uppercase tracking-[0.15em] text-[10px] font-medium">
+                    <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-[#666666] mb-1">
+                      <span className="uppercase tracking-[0.15em] font-medium">
                         {product.category}
                       </span>
-                      <span className="text-[#15803D] font-medium text-[10px]">
+                      <span className="text-[#15803D] font-medium hidden sm:inline">
                         {product.isTryHaulEligible ? "Home Trial: ₹0" : "In Stock"}
                       </span>
                     </div>
@@ -351,19 +373,21 @@ export default function ShopPage() {
                       {product.name}
                     </Link>
 
-                    <p className="text-[11px] text-[#666666] line-clamp-1 mt-1">
+                    <p className="text-[11px] text-[#666666] line-clamp-1 mt-1 hidden sm:block">
                       {product.tagline}
                     </p>
                   </div>
 
                   {/* Sizes and Price */}
                   <div className="pt-2 border-t border-[#E5E5E0] flex items-center justify-between">
-                    <span className="text-xs text-[#888888]">
-                      Sizes: {product.sizes.join(", ")}
+                    <span className="text-[11px] sm:text-xs text-[#888888] truncate max-w-[100px]">
+                      {product.sizes.join(", ")}
                     </span>
-                    <span className="text-sm font-semibold text-[#111111] tabular-nums">
-                      ₹{product.price.toLocaleString("en-IN")}
-                    </span>
+                    <div className="text-right">
+                      <span className="text-xs sm:text-sm font-semibold text-[#111111] tabular-nums">
+                        ₹{product.price.toLocaleString("en-IN")}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

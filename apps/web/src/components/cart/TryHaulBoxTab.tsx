@@ -124,11 +124,11 @@ export function TryHaulBoxTab() {
 
           return (
             <div key={item.id} className="pt-4 first:pt-0 space-y-3">
-              <div className="flex gap-4">
+              <div className="flex gap-3 sm:gap-4">
                 <Link
                   href={`/shop/${item.productId}`}
                   onClick={closeDrawer}
-                  className="relative w-20 h-28 bg-[#FAF9F6] shrink-0 border border-[#E5E5E0] overflow-hidden group"
+                  className="relative w-16 h-24 sm:w-20 sm:h-28 bg-[#FAF9F6] shrink-0 border border-[#E5E5E0] overflow-hidden group"
                 >
                   <Image
                     src={item.product.images[0]}
@@ -193,7 +193,7 @@ export function TryHaulBoxTab() {
 
               {/* One-click backup size prompt banner */}
               {suggestedBackupSize && !isFull && (
-                <div className="p-2.5 bg-[#FAF9F6] border border-[#E5E5E0] flex items-center justify-between gap-2">
+                <div className="p-2.5 bg-[#FAF9F6] border border-[#E5E5E0] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                   <div className="text-[11px] text-[#333333]">
                     <span className="font-medium text-[#111111]">Not sure about fit?</span>
                     <span className="block text-[#666666] text-[10px]">
@@ -202,7 +202,7 @@ export function TryHaulBoxTab() {
                   </div>
                   <button
                     onClick={() => handleAddBackup(item.id, suggestedBackupSize)}
-                    className="px-2.5 py-1.5 rounded-none bg-[#111111] hover:bg-[#333333] text-white text-[10px] font-medium uppercase tracking-wider flex items-center gap-1 shrink-0 transition-colors"
+                    className="px-2.5 py-1.5 rounded-none bg-[#111111] hover:bg-[#333333] text-white text-[10px] font-medium uppercase tracking-wider flex items-center gap-1 self-start sm:self-auto shrink-0 transition-colors"
                   >
                     <PlusCircle className="w-3 h-3" />
                     + Size {suggestedBackupSize}
@@ -215,7 +215,7 @@ export function TryHaulBoxTab() {
       </div>
 
       {/* Footer fee breakdown */}
-      <div className="p-5 bg-[#FAF9F6] border-t border-[#E5E5E0] space-y-3">
+      <div className="p-4 sm:p-5 bg-[#FAF9F6] border-t border-[#E5E5E0] space-y-3">
         <div className="p-3 bg-white border border-[#E5E5E0] space-y-2 text-xs">
           <div className="flex justify-between text-[#666666]">
             <span>Pay Now for Clothes</span>

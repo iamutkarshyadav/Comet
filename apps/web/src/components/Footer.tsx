@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer id="boutiques" className="border-t border-[#E5E5E0] bg-[#FAF9F6] py-16 text-[#666666] text-xs">
+    <footer id="boutiques" className="border-t border-[#E5E5E0] bg-[#FAF9F6] py-12 sm:py-16 text-[#666666] text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand info */}
           <div className="space-y-4">
             <span className="text-xl font-bold tracking-[0.24em] uppercase text-[#111111]">
@@ -90,7 +90,7 @@ export function Footer() {
               Concierge
             </h4>
             <ul className="space-y-2.5">
-              <li>
+              <li className="break-all">
                 <span className="text-[#666666]">
                   concierge@auranoir-atelier.com
                 </span>
@@ -114,11 +114,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[#E5E5E0] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#888888]">
+        <div className="pt-8 border-t border-[#E5E5E0] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-[#888888]">
           <div>
             © {new Date().getFullYear()} AURA / NOIR ATELIER. ALL RIGHTS RESERVED.
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             <span>Terms of Service</span>
             <span>Privacy Protocol</span>
             <span>Doorstep Trial Agreement</span>

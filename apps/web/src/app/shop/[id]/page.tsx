@@ -137,8 +137,8 @@ export default function ProductDetailPage({ params }: PageProps) {
 
       {/* Size Guide Modal */}
       {showSizeGuide && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
-          <div className="bg-white border border-[#E5E5E0] max-w-xl w-full p-6 sm:p-8 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xs">
+          <div className="bg-white border border-[#E5E5E0] max-w-xl w-full p-5 sm:p-8 relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setShowSizeGuide(false)}
               className="absolute top-4 right-4 text-[#666666] hover:text-[#111111]"
@@ -147,26 +147,26 @@ export default function ProductDetailPage({ params }: PageProps) {
               <X className="w-5 h-5" />
             </button>
 
-            <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
+            <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-[#666666] block mb-1">
               Measurement Protocol
             </span>
-            <h3 className="text-xl font-normal text-[#111111] uppercase tracking-tight mb-4">
+            <h3 className="text-lg sm:text-xl font-normal text-[#111111] uppercase tracking-tight mb-3 sm:mb-4">
               Size & Fit Guide
             </h3>
 
-            <p className="text-xs text-[#666666] mb-6 leading-relaxed">
+            <p className="text-xs text-[#666666] mb-5 sm:mb-6 leading-relaxed">
               All our pieces are cut in a contemporary relaxed silhouette. If you are between sizes, we recommend ordering your usual size and checking the complimentary backup size option to test both at home.
             </p>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto -mx-1 sm:mx-0">
               <table className="w-full text-left text-xs border border-[#E5E5E0]">
                 <thead>
                   <tr className="bg-[#FAF9F6] border-b border-[#E5E5E0] text-[#666666] uppercase text-[10px] tracking-wider">
-                    <th className="py-2.5 px-3">Size</th>
-                    <th className="py-2.5 px-3">Chest (in)</th>
-                    <th className="py-2.5 px-3">Waist (in)</th>
-                    <th className="py-2.5 px-3">Hips (in)</th>
-                    <th className="py-2.5 px-3">Length (in)</th>
+                    <th className="py-2.5 px-2.5 sm:px-3">Size</th>
+                    <th className="py-2.5 px-2.5 sm:px-3">Chest (in)</th>
+                    <th className="py-2.5 px-2.5 sm:px-3">Waist (in)</th>
+                    <th className="py-2.5 px-2.5 sm:px-3">Hips (in)</th>
+                    <th className="py-2.5 px-2.5 sm:px-3">Length (in)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#E5E5E0] font-sans">
@@ -182,21 +182,21 @@ export default function ProductDetailPage({ params }: PageProps) {
                       key={row.s}
                       className={row.s === selectedSize ? "bg-[#F4F4F0] font-semibold" : ""}
                     >
-                      <td className="py-2.5 px-3 font-semibold">{row.s}</td>
-                      <td className="py-2.5 px-3">{row.c}</td>
-                      <td className="py-2.5 px-3">{row.w}</td>
-                      <td className="py-2.5 px-3">{row.h}</td>
-                      <td className="py-2.5 px-3">{row.l}</td>
+                      <td className="py-2.5 px-2.5 sm:px-3 font-semibold">{row.s}</td>
+                      <td className="py-2.5 px-2.5 sm:px-3">{row.c}</td>
+                      <td className="py-2.5 px-2.5 sm:px-3">{row.w}</td>
+                      <td className="py-2.5 px-2.5 sm:px-3">{row.h}</td>
+                      <td className="py-2.5 px-2.5 sm:px-3">{row.l}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#E5E5E0] flex justify-end">
+            <div className="mt-5 sm:mt-6 pt-4 border-t border-[#E5E5E0] flex justify-end">
               <button
                 onClick={() => setShowSizeGuide(false)}
-                className="px-6 py-2 bg-[#111111] text-white text-xs uppercase tracking-wider font-semibold"
+                className="px-6 py-2.5 bg-[#111111] text-white text-xs uppercase tracking-wider font-semibold"
               >
                 Close Guide
               </button>
@@ -206,8 +206,8 @@ export default function ProductDetailPage({ params }: PageProps) {
       )}
 
       {/* Breadcrumb Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6 pb-4">
-        <nav className="flex items-center text-[11px] text-[#666666] uppercase tracking-[0.15em] gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-4 sm:pt-6 pb-3 sm:pb-4">
+        <nav className="flex items-center text-[10px] sm:text-[11px] text-[#666666] uppercase tracking-[0.15em] gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none whitespace-nowrap">
           <Link href="/" className="hover:text-[#111111] transition-colors">
             Home
           </Link>
@@ -223,17 +223,17 @@ export default function ProductDetailPage({ params }: PageProps) {
             {product.category}
           </Link>
           <span>/</span>
-          <span className="text-[#111111] font-semibold truncate max-w-[200px]">
+          <span className="text-[#111111] font-semibold truncate max-w-[150px] sm:max-w-[200px]">
             {product.name}
           </span>
         </nav>
       </div>
 
       {/* Main PDP Grid: 60% Left Gallery, 40% Right Sticky Panel */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-28 lg:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
           {/* Left Column (60%): Vertical Stacking Editorial Studio Gallery */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6">
             {product.images.map((imgSrc, index) => (
               <div
                 key={index}
@@ -256,22 +256,22 @@ export default function ProductDetailPage({ params }: PageProps) {
 
           {/* Right Column (40%): Sticky Purchasing & Try at Home Drawer */}
           <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-24 flex flex-col gap-6 bg-white p-6 sm:p-8 border border-[#E5E5E0]">
+            <div className="lg:sticky lg:top-24 flex flex-col gap-5 sm:gap-6 bg-white p-4 sm:p-8 border border-[#E5E5E0]">
               {/* Product Header */}
               <div>
-                <div className="flex items-center justify-between text-[11px] text-[#666666] mb-1">
+                <div className="flex items-center justify-between text-[10px] sm:text-[11px] text-[#666666] mb-1">
                   <span className="uppercase tracking-[0.2em] font-medium">
                     {product.category} • {product.sku}
                   </span>
                   {product.isTryHaulEligible && (
-                    <span className="inline-flex items-center gap-1 text-[#15803D] font-semibold text-[11px] uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1 text-[#15803D] font-semibold text-[10px] sm:text-[11px] uppercase tracking-wider">
                       <Box className="w-3.5 h-3.5" />
                       Try at Home Eligible
                     </span>
                   )}
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl font-normal text-[#111111] uppercase tracking-tight mt-1">
+                <h1 className="text-xl sm:text-3xl font-normal text-[#111111] uppercase tracking-tight mt-1">
                   {product.name}
                 </h1>
 
@@ -280,17 +280,17 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </p>
 
                 {/* Price Display */}
-                <div className="mt-4 pb-4 border-b border-[#E5E5E0] flex items-baseline justify-between">
+                <div className="mt-3 sm:mt-4 pb-4 border-b border-[#E5E5E0] flex items-baseline justify-between">
                   <div>
-                    <span className="text-2xl font-normal text-[#111111] tabular-nums">
+                    <span className="text-xl sm:text-2xl font-normal text-[#111111] tabular-nums">
                       ₹{product.price.toLocaleString("en-IN")}
                     </span>
                     <span className="text-[11px] text-[#888888] ml-2 font-normal">
                       Tax included
                     </span>
                   </div>
-                  <span className="text-[11px] text-[#15803D] font-medium">
-                    Complimentary Express Shipping
+                  <span className="text-[10px] sm:text-[11px] text-[#15803D] font-medium">
+                    Free Express Shipping
                   </span>
                 </div>
               </div>
@@ -330,7 +330,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Size Selector */}
+              {/* Size Selector (Responsive Grid) */}
               <div>
                 <div className="flex items-center justify-between text-xs mb-2.5">
                   <div className="flex items-center gap-2">
@@ -350,7 +350,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-6 gap-1.5">
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                   {product.sizes.map((size) => {
                     const isSelected = selectedSize === size;
                     const inStock = isSizeInStock(size);
@@ -606,6 +606,31 @@ export default function ProductDetailPage({ params }: PageProps) {
           </div>
         </section>
       </main>
+
+      {/* Mobile Sticky Action Dock (lg:hidden) */}
+      <div className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E5E5E0] p-3 shadow-2xl">
+        <div className="flex items-center gap-2">
+          {/* Buy Now Button */}
+          <button
+            onClick={handleAddToBag}
+            className="flex-1 py-3 px-2 bg-[#111111] active:bg-[#333333] text-white text-[11px] uppercase tracking-wider font-semibold flex items-center justify-center gap-1.5 transition-colors"
+          >
+            <ShoppingBag className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Buy • ₹{product.price.toLocaleString("en-IN")}</span>
+          </button>
+
+          {/* Try at Home Button */}
+          {product.isTryHaulEligible && (
+            <button
+              onClick={handleTryAtHome}
+              className="flex-1 py-3 px-2 bg-white active:bg-[#FAF9F6] text-[#111111] border border-[#111111] text-[11px] uppercase tracking-wider font-semibold flex items-center justify-center gap-1.5 transition-colors"
+            >
+              <Box className="w-3.5 h-3.5 text-[#15803D] shrink-0" />
+              <span className="truncate">Try at Home (₹0)</span>
+            </button>
+          )}
+        </div>
+      </div>
 
       <Footer />
     </div>
